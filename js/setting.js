@@ -7,6 +7,7 @@ const lightGallery = window.lightGallery($lightGallery, {
     animateThumb: false,
     allowMediaOverlap: true,
     mode: "lg-fade",
+    toggleThumb: true,
     dynamicEl: [
         {
             src: "http://ehimestream.xsrv.jp/digital_archives/wp-content/themes/digitalarchives/image/najimi/1_001.jpg",
