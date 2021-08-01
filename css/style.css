@@ -1,13 +1,13 @@
 .lg-custom-thumbnails .lg-outer {
     width: auto;
-    right: 225px;
-    left: 10px
+    left: 128px;
+    right: 10px
 }
 
 .lg-custom-thumbnails .lg-outer .lg-thumb-outer {
-    left: auto;
+    right: auto;
     top: 0;
-    width: 225px;
+    width: 128px;
     max-height: none;
     bottom: 0;
     background-color: #999;
@@ -16,11 +16,11 @@
     margin: 0 -10px;
     overflow-y: auto;
     position: fixed;
-    right: 0;
+    left: 0;
     transform: translate3d(30%, 0, 0);
     opacity: 0;
-    will-change: transform opacity;
-    transition: transform 0.15s cubic-bezier(0, 0, 0.25, 1) 0s, cubic-bezier(0, 0, 0.25, 1) 0.15s
+    /* will-change: transform opacity; */
+    /* transition: transform 0.15s cubic-bezier(0, 0, 0.25, 1) 0s, cubic-bezier(0, 0, 0.25, 1) 0.15s */
 }
 
 .lg-custom-thumbnails .lg-outer.lg-components-open .lg-thumb-outer {
@@ -29,7 +29,7 @@
 }
 
 .lg-custom-thumbnails .lg-outer .lg-thumb-item {
-    float: left;
+    float: right;
     filter: grayscale(100%);
     will-change: filter;
     transition: filter 0.12s ease-in, border-color 0.12s ease
