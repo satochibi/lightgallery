@@ -2174,25 +2174,27 @@
                 _loop = false;
             }
             if (!this.lgBusy) {
-                if (this.index + 1 < this.galleryItems.length) {
-                    this.index++;
-                    this.LGel.trigger(lGEvents.beforeNextSlide, {
+                if (this.index > 0) {
+                    this.index--;
+                    this.LGel.trigger(lGEvents.beforePrevSlide, {
                         index: this.index,
+                        fromTouch: fromTouch,
                     });
-                    this.slide(this.index, !!fromTouch, false, 'next');
+                    this.slide(this.index, !!fromTouch, false, 'prev');
                 }
                 else {
                     if (_loop) {
-                        this.index = 0;
-                        this.LGel.trigger(lGEvents.beforeNextSlide, {
+                        this.index = this.galleryItems.length - 1;
+                        this.LGel.trigger(lGEvents.beforePrevSlide, {
                             index: this.index,
+                            fromTouch: fromTouch,
                         });
-                        this.slide(this.index, !!fromTouch, false, 'next');
+                        this.slide(this.index, !!fromTouch, false, 'prev');
                     }
                     else if (this.settings.slideEndAnimation && !fromTouch) {
-                        this.outer.addClass('lg-right-end');
+                        this.outer.addClass('lg-left-end');
                         setTimeout(function () {
-                            _this.outer.removeClass('lg-right-end');
+                            _this.outer.removeClass('lg-left-end');
                         }, 400);
                     }
                 }
@@ -2215,27 +2217,25 @@
                 _loop = false;
             }
             if (!this.lgBusy) {
-                if (this.index > 0) {
-                    this.index--;
-                    this.LGel.trigger(lGEvents.beforePrevSlide, {
+                if (this.index + 1 < this.galleryItems.length) {
+                    this.index++;
+                    this.LGel.trigger(lGEvents.beforeNextSlide, {
                         index: this.index,
-                        fromTouch: fromTouch,
                     });
-                    this.slide(this.index, !!fromTouch, false, 'prev');
+                    this.slide(this.index, !!fromTouch, false, 'next');
                 }
                 else {
                     if (_loop) {
-                        this.index = this.galleryItems.length - 1;
-                        this.LGel.trigger(lGEvents.beforePrevSlide, {
+                        this.index = 0;
+                        this.LGel.trigger(lGEvents.beforeNextSlide, {
                             index: this.index,
-                            fromTouch: fromTouch,
                         });
-                        this.slide(this.index, !!fromTouch, false, 'prev');
+                        this.slide(this.index, !!fromTouch, false, 'next');
                     }
                     else if (this.settings.slideEndAnimation && !fromTouch) {
-                        this.outer.addClass('lg-left-end');
+                        this.outer.addClass('lg-right-end');
                         setTimeout(function () {
-                            _this.outer.removeClass('lg-left-end');
+                            _this.outer.removeClass('lg-right-end');
                         }, 400);
                     }
                 }
